@@ -1,0 +1,17 @@
+services:
+
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mongodb
+    environment:
+      MONGO_HOST: mongodb
+      MONGO_PORT: 27017
+      MONGO_DB: studentdb
+
+  mongodb:
+    image: mongo:8
+    ports:
+      - "27017:27017"
